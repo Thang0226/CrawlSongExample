@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -12,7 +11,8 @@ public class CrawlSongExample {
 			URL url = new URL("https://www.nhaccuatui.com/top100/top-100-nhac-tre.m3liaiy6vVsF.html");
 			// open the stream and put it into BufferedReader of Scanner
 			Scanner scanner = new Scanner(new InputStreamReader(url.openStream()));
-			scanner.useDelimiter("\\Z");    // scanner only stop at very end of all input (not at \n or space)
+			// InputStreamReader converts binary infor from url.openStream to characters
+			scanner.useDelimiter("\\Z");    // scanner only stop at very end of file (not at \n or space)
 			String content = scanner.next();
 			scanner.close();
 
